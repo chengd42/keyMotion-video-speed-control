@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "KeyMotion Video Control",
+  "version": "1.0",
+  "description": "Hold a key to speed up video",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "permissions": ["activeTab"],
+
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": [
+        "https://www.frontendmasters.com/*",
+        "https://frontendmasters.com/*",
+        "https://www.youtube.com/*",
+        "https://youtube.com/*",
+        "https://www.bilibili.com/*",
+        "https://bilibili.com/*",
+        "https://www.ixigua.com/*",
+        "https://ixigua.com/*",
+        "https://www.vimeo.com/*",
+        "https://vimeo.com/*",
+        "https://www.weibo.com/*",
+        "https://weibo.com/*",
+        "https://m.weibo.cn/*"
+      ]
+    }
+  ]
+}
