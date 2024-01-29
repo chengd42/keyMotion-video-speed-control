@@ -1,5 +1,6 @@
 console.log("extension loaded!");
 let speedUp = false;
+let initialSpeed = 1;
 let speed = 3;
 
 const videoElement = document.querySelector("video");
@@ -7,6 +8,7 @@ const videoElement = document.querySelector("video");
 function handleKeyDown(e, video) {
   if (e.key === "v" && !speedUp) {
     console.log("v key pressed!");
+    initialSpeed = video.playbackRate;
     video.playbackRate = speed;
     const prompt = document.createElement("div");
     prompt.textContent = `${speed}x`;
@@ -25,7 +27,7 @@ function handleKeyUp(e, video) {
     console.log("v key up!");
     document.querySelector(".speedup-prompt").remove();
 
-    video.playbackRate = 1;
+    video.playbackRate = initialSpeed;
     speedUp = false;
   }
 }
@@ -36,10 +38,6 @@ if (videoElement) {
   window.addEventListener("click", (e) => {
     console.log("the click target is: ", e.target);
     e.target.focus();
-    console.log(
-      "current focus element after click is: ",
-      document.activeElement
-    );
   });
 
   window.addEventListener("keydown", (e) => {
